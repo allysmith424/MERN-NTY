@@ -9,24 +9,24 @@ const SearchCard = props => (
     <div className="mdl-card__supporting-text">
       <form action="#">
         <div className="mdl-textfield mdl-js-textfield">
-          <input className="mdl-textfield__input" type="text" id="topic" />
+          <input className="mdl-textfield__input" type="text" name="topic" onChange={props.handleInputChange} />
           <label className="mdl-textfield__label" for="topic">Topic</label>
         </div>
         <br />
         <div className="mdl-textfield mdl-js-textfield">
-          <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="start-year" />
+          <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="startDate" onChange={props.handleInputChange} />
           <label className="mdl-textfield__label" for="start-year">Start Year</label>
           <span className="mdl-textfield__error">Please give a year in the form YYYY</span>
         </div>
         <div className="mdl-textfield mdl-js-textfield">
-          <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="end-year" />
+          <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="endDate" onChange={props.handleInputChange} />
           <label className="mdl-textfield__label" for="end-year">End Year</label>
           <span className="mdl-textfield__error">Please give a year in the form YYYY</span>
         </div>
       </form>
     </div>
     <div className="mdl-card__actions mdl-card--border">
-      <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect search-btn">
+      <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect search-btn" onClick={props.handleSearch}>
         Search
       </a>
     </div>

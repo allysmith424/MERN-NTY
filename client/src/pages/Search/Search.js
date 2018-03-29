@@ -17,16 +17,26 @@ class Search extends Component {
     href: ""
   };
 
-  loadArticles = () => {
-  API.getArticles()
-    .then(res =>
-      this.setState({ articles: res.data, topic: "", startDate: "", endDate: "" })
-    )
-    .catch(err => console.log(err));
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+    [name]: value
+    });
+    console.log(this.state.startDate);
+    console.log(this.state.endDate);
   };
 
   handleSearch = () => {
-    this.loadArticles();
+    const topic = this.state.topic;
+    const startDate = `${this.state.startDate}0101`;
+    const endDate = `${this.state.endDate}1212`;
+    const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${topic}&begin_date=${startDate}&end_date=${endDate}&api-key=2a4f99f383e44584aec8fefc4ac09156`
+
+  API.getArticles(url)
+    .then(result => {
+      this.setState({ articles: result.data.response.docs, topic: "", startDate: "", endDate: "" });
+    })
+    .catch(err => console.log(err));
   };
 
   handleSaveArticle = id => {
@@ -40,7 +50,10 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <SearchCard />
+        <SearchCard
+          handleSearch={this.handleSearch}
+          handleInputChange={this.handleInputChange}
+        />
         <ResultsCard />
       </div>
     );

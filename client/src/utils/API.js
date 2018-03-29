@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-  getArticles: function() {
-    return axios.get("/api/articles");
+  getArticles: function(url) {
+    return axios.get(url);
   },
   getArticle: function(id) {
     return axios.get("/api/articles/" + id);

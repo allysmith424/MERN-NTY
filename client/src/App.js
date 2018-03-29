@@ -6,11 +6,20 @@ import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 
 class App extends Component {
+
+  state = {
+    saved: 0
+  };
+
+  addSavedBook = () => {
+    this.setState({ saved: this.state.saved + 1});
+  }
+
   render() {
     return (
       <Router>
         <div>
-          <Nav />
+          <Nav saved={this.state.saved} />
           <Switch>
             <Route exact path="/" component={Search} />
             <Route exact path="/search" component={Search} />

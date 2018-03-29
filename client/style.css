@@ -1,0 +1,64 @@
+html {
+  font-size: 62.5%;
+}
+
+.demo-layout-transparent {
+  background-color: #828282;
+  height: 30vh;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  color: white;
+}
+
+.demo-card-wide.mdl-card {
+  width: 70vw;
+  margin-left: 15vw;
+  position: absolute;
+}
+
+.search-card, .saved-card {
+  margin-top: 40vh;
+}
+
+.demo-card-wide > .mdl-card__title {
+  background-color: #e3e3e3;
+  height: 10rem;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.mdl-card__title-text {
+  text-transform: uppercase;
+  position: relative;
+  left: 2%;
+}
+
+.mdl-card__title {
+  margin-bottom: 3rem;
+}
+
+.search-btn {
+  left: 2%;
+}
+
+.mdl-textfield {
+margin: 1rem 3rem;
+}
+
+
+.results-card {
+  top: 110vh;
+  margin-bottom: 20vh;
+  height: auto;
+}
+
+.mdl-list__item-primary-content {
+  padding-left: 2rem;
+}
+
+.saved-card {
+  height: auto;
+  margin-bottom: 20vh;
+}

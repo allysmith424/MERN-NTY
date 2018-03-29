@@ -1,15 +1,24 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import { Link } from "react-router-dom";
-
+import API from "../../utils/API";
+import SavedCard from "../../components/SavedCard";
 
 class Saved extends Component {
   state = {
-    books: [],
     title: "",
+    date: "",
     author: "",
-    synopsis: ""
+    href: ""
   };
+
+  render() {
+    return (
+      <div>
+        <SavedCard />
+      </div>
+    );
+  };
+
 };
 
 export default Saved;

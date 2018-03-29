@@ -1,0 +1,11 @@
+.demo-card-wide.mdl-card {
+  width: 70vw;
+  margin-left: 15vw;
+  position: absolute;
+}
+
+.saved-card {
+  margin-top: 40vh;
+  height: auto;
+  margin-bottom: 20vh;
+}

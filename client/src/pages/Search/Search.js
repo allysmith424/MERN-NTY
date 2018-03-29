@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import SearchCard from "../components/SearchCard";
-import ResultsCard from "../components/ResultsCard";
+import SearchCard from "../../components/SearchCard";
+import ResultsCard from "../../components/ResultsCard";
+import API from "../../utils/API";
 
 
 class Search extends Component {

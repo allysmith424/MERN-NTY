@@ -1,4 +1,4 @@
-html {
+/* html {
   font-size: 62.5%;
 }
 
@@ -9,7 +9,7 @@ html {
 .demo-layout-transparent .mdl-layout__header,
 .demo-layout-transparent .mdl-layout__drawer-button {
   color: white;
-}
+} */
 
 .demo-card-wide.mdl-card {
   width: 70vw;
@@ -39,24 +39,24 @@ html {
   margin-bottom: 3rem;
 }
 
-.search-btn {
+/* .search-btn {
   left: 2%;
 }
 
 .mdl-textfield {
 margin: 1rem 3rem;
-}
+} */
 
 
-.results-card {
+/* .results-card {
   top: 110vh;
   margin-bottom: 20vh;
   height: auto;
-}
+} */
 
-.mdl-list__item-primary-content {
+/* .mdl-list__item-primary-content {
   padding-left: 2rem;
-}
+} */
 
 .saved-card {
   height: auto;

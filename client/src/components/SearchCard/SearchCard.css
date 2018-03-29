@@ -1,0 +1,36 @@
+.demo-card-wide.mdl-card {
+  width: 70vw;
+  margin-left: 15vw;
+  position: absolute;
+}
+
+.search-card {
+  margin-top: 40vh;
+  margin-bottom: 5rem;
+}
+
+.demo-card-wide > .mdl-card__title {
+  background-color: #e3e3e3;
+  height: 10rem;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.mdl-card__title-text {
+  text-transform: uppercase;
+  position: relative;
+  left: 2%;
+}
+
+.mdl-card__title {
+  margin-bottom: 3rem;
+}
+
+.search-btn {
+  left: 2%;
+}
+
+.mdl-textfield {
+margin: 1rem 3rem;
+}

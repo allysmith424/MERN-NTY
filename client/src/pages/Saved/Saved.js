@@ -1,20 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import SavedCard from "../../components/SavedCard";
+import { SavedCard, SavedItem } from "../../components/Saved";
 
 class Saved extends Component {
   state = {
     title: "",
     date: "",
-    author: "",
     href: ""
   };
 
   render() {
     return (
       <div>
-        <SavedCard />
+        <SavedCard>
+          <SavedItem
+            title={item.title}
+            date={item.date}
+            href={item.href}
+          />
+        </SavedCard>
       </div>
     );
   };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SearchCard from "../../components/SearchCard";
-import ResultsCard from "../../components/ResultsCard";
+import { ResultsCard, ResultItem } from "../../components/Results";
 import API from "../../utils/API";
 
 
@@ -13,7 +13,6 @@ class Search extends Component {
     endDate: "",
     title: "",
     date: "",
-    author: "",
     href: ""
   };
 
@@ -27,6 +26,7 @@ class Search extends Component {
   };
 
   handleSearch = () => {
+    this.setState({ articles: [] });
     const topic = this.state.topic;
     const startDate = `${this.state.startDate}0101`;
     const endDate = `${this.state.endDate}1212`;
@@ -34,13 +34,14 @@ class Search extends Component {
 
   API.getArticles(url)
     .then(result => {
-      this.setState({ articles: result.data.response.docs, topic: "", startDate: "", endDate: "" });
+      console.log(result.data.response.docs);;
+      this.setState({ articles: result.data.response.docs, topic: "", startDate: "", endDate: ""});
     })
     .catch(err => console.log(err));
   };
 
   handleSaveArticle = id => {
-    API.saveArticle({ title: this.state.topic, date: this.state.date, author: this.state.author, href: this.state.href })
+    API.saveArticle({ title: this.state.topic, date: this.state.date, href: this.state.href })
       .then(res => {
         console.log(res);
       })
@@ -54,7 +55,15 @@ class Search extends Component {
           handleSearch={this.handleSearch}
           handleInputChange={this.handleInputChange}
         />
-        <ResultsCard />
+        <ResultsCard>
+          {this.state.articles.map(article => (
+            <ResultItem
+              title={article.headline.main}
+              date={article.ub_date}
+              href={article.web_url}
+            />
+          ))}
+        </ResultsCard>
       </div>
     );
   };

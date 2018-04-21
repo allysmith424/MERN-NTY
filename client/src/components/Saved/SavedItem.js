@@ -1,4 +1,6 @@
-export const SavedItem = (props, index) =>
+import React from "react";
+
+const SavedItem = (props, index) =>
 
 <li class="mdl-list__item">
   <div class="mdl-tooltip" data-mdl-for="list-item-1">
@@ -11,3 +13,5 @@ export const SavedItem = (props, index) =>
     Remove
   </button>
 </li>
+
+export default SavedItem;

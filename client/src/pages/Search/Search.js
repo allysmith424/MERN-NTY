@@ -34,7 +34,7 @@ class Search extends Component {
 
   API.getArticles(url)
     .then(result => {
-      console.log(result.data.response.docs);;
+      console.log(result.data.response.docs);
       this.setState({ articles: result.data.response.docs, topic: "", startDate: "", endDate: ""});
     })
     .catch(err => console.log(err));

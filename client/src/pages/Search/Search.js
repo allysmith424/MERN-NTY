@@ -8,12 +8,10 @@ import API from "../../utils/API";
 class Search extends Component {
   state = {
     articles: [],
-    topic: "",
-    startDate: "",
-    endDate: "",
-    title: "",
-    date: "",
-    href: ""
+    q: "",
+    start_year: "",
+    end_year: "",
+    message: "Search For Articles To Begin!"
   };
 
   handleInputChange = event => {
@@ -21,40 +19,48 @@ class Search extends Component {
     this.setState({
     [name]: value
     });
-    console.log(this.state.startDate);
-    console.log(this.state.endDate);
   };
 
-  handleSearch = () => {
-    this.setState({ articles: [] });
-    const topic = this.state.topic;
-    const startDate = `${this.state.startDate}0101`;
-    const endDate = `${this.state.endDate}1212`;
-    const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${topic}&begin_date=${startDate}&end_date=${endDate}&api-key=2a4f99f383e44584aec8fefc4ac09156`
-
-  API.getArticles(url)
-    .then(result => {
-      console.log(result.data.response.docs);
-      this.setState({ articles: result.data.response.docs, topic: "", startDate: "", endDate: ""});
+  getArticles = () => {
+    API.getArticles({
+      q: this.state.q,
+      start_year: this.state.start_year,
+      end_year: this.state.end_year
     })
-    .catch(err => console.log(err));
+      .then(res =>
+        this.setState({
+          articles: res.data,
+          message: !res.data.length
+            ? "No New Articles Found, Try a Different Query"
+            : ""
+        })
+      )
+      .catch(err => console.log(err));
   };
 
-  handleSaveArticle = id => {
-    API.saveArticle({ title: this.state.topic, date: this.state.date, href: this.state.href })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => console.log(err));
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.getArticles();
+  };
+
+
+  handleArticleSave = id => {
+    const article = this.state.articles.find(article => article._id === id);
+    API.saveArticle(article).then(res => this.getArticles());
   };
 
   render() {
     return (
       <div>
-        <SearchCard
-          handleSearch={this.handleSearch}
-          handleInputChange={this.handleInputChange}
-        />
+        <form>
+          <SearchCard
+            handleInputChange={this.handleInputChange}
+            handleFormSubmit={this.handleFormSubmit}
+            q={this.state.q}
+            start_year={this.state.start_year}
+            end_year={this.state.end_year}
+          />
+        </form>
         <ResultsCard>
           {this.state.articles.map(article => (
             <ResultItem

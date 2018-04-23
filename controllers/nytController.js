@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     const params = Object.assign(
-      { api_key: "9b3adf57854f4a19b7b5782cdd6e427a" },
+      { api_key: "2a4f99f383e44584aec8fefc4ac09156" },
       req.query
     );
     axios

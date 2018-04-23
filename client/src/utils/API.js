@@ -1,16 +1,17 @@
 import axios from "axios";
+import filterParams from "./filterParams";
 
 export default {
-  getArticles: function(url) {
-    return axios.get(url);
+  getArticles: function(params) {
+    return axios.get("/api/nyt", { params: filterParams(params) });
   },
-  getArticle: function(id) {
-    return axios.get("/api/articles/" + id);
+  getSavedArticles: function() {
+    return axios.get("/api/articles");
   },
   deleteArticle: function(id) {
     return axios.delete("/api/articles/" + id);
   },
   saveArticle: function(articleData) {
-    return axios.post("/api/books", articleData);
+    return axios.post("/api/articles", articleData);
   }
 };

@@ -26,7 +26,7 @@ const SearchCard = props => (
       </form>
     </div>
     <div className="mdl-card__actions mdl-card--border">
-      <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect search-btn" onClick={props.handleSearch}>
+      <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect search-btn" onClick={props.handleFormSubmit}>
         Search
       </a>
     </div>

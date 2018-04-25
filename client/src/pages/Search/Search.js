@@ -11,7 +11,7 @@ class Search extends Component {
     q: "",
     start_year: "",
     end_year: "",
-    message: "Search For Articles To Begin!"
+    message: "Search For Articles To Begin"
   };
 
   handleInputChange = event => {
@@ -52,21 +52,22 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <form>
-          <SearchCard
-            handleInputChange={this.handleInputChange}
-            handleFormSubmit={this.handleFormSubmit}
-            q={this.state.q}
-            start_year={this.state.start_year}
-            end_year={this.state.end_year}
-          />
-        </form>
+        <SearchCard
+          handleInputChange={this.handleInputChange}
+          handleFormSubmit={this.handleFormSubmit}
+          q={this.state.q}
+          start_year={this.state.start_year}
+          end_year={this.state.end_year}
+        />
         <ResultsCard>
           {this.state.articles.map(article => (
             <ResultItem
+              key={article._id}
+              _id={article._id}
               title={article.headline.main}
-              date={article.ub_date}
               href={article.web_url}
+              date={article.pub_date}
+              handleClick={this.handleArticleSave}
             />
           ))}
         </ResultsCard>
